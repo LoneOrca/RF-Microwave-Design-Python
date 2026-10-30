@@ -1,0 +1,62 @@
+# BJT Oscillator Design at 2.75 GHz
+
+## Design Process
+
+This project focuses on the analysis and design of a BJT oscillator operating at 2.75 GHz using Python.
+
+The following steps describe the process used in the design.
+
+### 1. S-Parameter Initialization
+The transistor's S-parameters (S11, S12, S21, and S22) are defined using their magnitude and phase at 2.75 GHz. The polar values are then converted into rectangular complex numbers to form a 2×2 S-parameter matrix.
+
+### 2. Initial Stability Analysis
+The stability of the transistor is analyzed using the determinant (Δ) and Rollet stability factor (K). These values help determine whether the transistor is unconditionally stable or conditionally stable.
+
+### 3. S-Parameters to Y-Parameters
+The S-parameter matrix is converted into a Y-parameter matrix using a 50-ohm reference impedance. This conversion provides the admittance representation of the transistor in common-emitter configuration.
+
+### 4. Common-Emitter to Common-Base Conversion
+The 2×2 Y-parameter matrix is expanded into a 3×3 matrix representing the transistor's base, collector, and emitter terminals. The common-base configuration is then obtained by selecting the emitter and collector as the two accessible ports, with the base as the common terminal.
+
+### 5. Y-Parameters to S-Parameters
+The resulting common-base Y-parameter matrix is converted back into a 2×2 S-parameter matrix. The stability of the common-base configuration is then evaluated using Δ and K.
+
+### 6. S-Parameters to Z-Parameters
+The common-base S-parameter matrix is converted into a Z-parameter matrix. This impedance representation is used for introducing the feedback reactance.
+
+### 7. Feedback Reactance Analysis
+A feedback reactance (XB) is introduced into the impedance matrix. Its value is swept from -100 Ω to +100 Ω using 1,000 data points.
+
+For every feedback reactance value, the corresponding S-parameters, stability factor K, and stability factors μin and μout are calculated.
+
+The results are plotted to observe how feedback reactance affects transistor stability.
+
+### 8. Feedback Reactance Selection
+A suitable feedback reactance is selected from the plotted results. The selected value is then used to calculate the corresponding inductance at 2.75 GHz.
+
+The modified impedance matrix is converted back into an S-parameter matrix, followed by another stability analysis.
+
+### 9. Termination and Resonator Network Analysis
+The output stability circle is calculated to study the possible termination conditions.
+
+A termination reflection coefficient (ΓT) is selected. Using this value, the input reflection coefficient (ΓIN) and input impedance (ZIN) are calculated.
+
+The required resonator impedance (ZR) and its reflection coefficient (ΓR) are then determined.
+
+### 10. Matching Network Design
+The input matching network (IMN), which acts as the resonator network, and the output matching network (OMN), which acts as the termination network, are designed using transmission-line sections.
+
+The corresponding electrical lengths are calculated in degrees at the operating frequency of 2.75 GHz.
+
+---
+
+## Tools and Libraries
+
+- Python
+- NumPy
+- SciPy
+- Matplotlib
+
+## Project Objective
+
+The objective is to understand transistor stability, feedback reactance, reflection coefficients, impedance transformations, and transmission-line matching techniques involved in RF oscillator design.
