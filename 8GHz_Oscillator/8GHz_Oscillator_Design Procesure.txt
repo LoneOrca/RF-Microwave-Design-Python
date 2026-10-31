@@ -1,0 +1,41 @@
+8 GHz Oscillator Design – Design Procedure
+
+1. Define the Design Parameters
+   
+   Set the operating frequency to 8 GHz, reference impedance to 50 Ω, and speed of light. Loaded the ATF-33143 transistor's S-parameter file for reference.
+
+2. Enter the S-Parameters
+   
+   Entered the transistor's S-parameters (S11, S12, S21, and S22) in magnitude and phase form. Converted them from polar to rectangular form for matrix calculations.
+
+3. Perform Initial Stability Analysis
+   
+   Calculated the determinant (Δ) and Rollet stability factor (K) to evaluate the transistor's initial stability in common-source configuration.
+
+4. Convert S-Parameters to Y-Parameters
+   
+   Converted the common-source S-parameter matrix into a Y-parameter matrix using matrix operations.
+
+5. Convert the 2-Port Matrix into a 3-Port Matrix
+   
+   Expanded the 2-port common-source Y-parameter matrix into a 3-port matrix representing the Gate, Drain, and Source terminals.
+
+6. Convert Common-Source to Common-Gate Configuration
+   
+   Reduced the 3-port matrix into a 2-port common-gate representation using the Source as the common terminal. Converted the resulting Y-parameters into S-parameters and then into Z-parameters.
+
+7. Analyze Gate Feedback Reactance
+   
+   Swept the gate feedback reactance from -100 Ω to +100 Ω. Calculated the corresponding S-parameters, K factor, and μ stability factors. Plotted the results to study how feedback reactance affects transistor stability.
+
+8. Select the Feedback Reactance
+   
+   Selected a feedback reactance of -64 Ω. Calculated the equivalent capacitance and electrical length required for the feedback transmission line. Recalculated the S-parameters and stability factors with the selected value.
+
+9. Calculate Source and Load Terminations
+   
+   Calculated the output stability circle and selected a termination reflection coefficient (ΓT). Used it to calculate the input reflection coefficient (ΓIN), input impedance, and source reflection coefficient (ΓR).
+
+10. Design the Matching and Resonator Networks
+    
+    Used Smith Chart calculations to determine the transmission-line lengths for the output matching network (OMN) and input matching/resonator network (IMN) at 8 GHz.
